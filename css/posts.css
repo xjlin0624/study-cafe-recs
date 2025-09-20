@@ -1,0 +1,117 @@
+/* * {
+    background-color: cyan;
+} */
+
+body {
+    background-color: #f1faee;
+}
+
+button {
+    font-size: 30px;
+    background-color: #a8dadc;
+}
+
+h1,h2 {
+    color: #1d3557;
+}
+
+
+
+span {
+    color: #457b9d;
+}
+
+.tag {
+    background-color: #e63946;
+    color: #f1faee;
+    font-size: 16px;
+}
+
+.post a {
+    color: #457b9d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+footer a {
+    color: #e63946;
+}
+
+/* adjacent */
+h2 + button {
+    font-size: 20px;
+    /* background-color: magenta; */
+}
+
+/* descendent / direct child */
+footer > a {
+    color: #457b9d;
+}
+
+input[type="password"] {
+    color: greenyellow
+}
+
+/* section[class="post"] is the same as */
+/* section.post {
+    background-color: purple;
+} */
+
+a[href*="google"] {
+    color: magenta;
+}
+
+.post button:hover {
+    background-color: #e63946;
+    color: #f1faee;
+}
+
+
+
+.post button:active {
+    background-color: #02c39a;
+}
+
+.post:nth-of-type(2n) {
+    background-color: #dfe8dc;
+}
+
+h2::first-letter {
+    font-size: 50px;
+}
+
+p::first-line {
+    color: purple;
+}
+
+p::selection {
+    background-color: #fcbf49;
+}
+
+/* specificity */
+/* only background color is conflicting with hover
+ and system will execute the more specific one (.post)
+ ID > CLASS > ELMENT calculated each as a digit
+*/
+/* inline style is the most specific - avoid it */
+/* !important tag: mark as most specific (eg.using external library and wants to override) */
+
+#signup {
+    color: #f1faee;
+    background-color: #1d3557;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+button:hover {
+    background-color: olive;
+    font-size: 10px;
+}
+
+/* button and input dont inherit by default */
+/* certain properties are not inheritable */
+/* button {
+    color:inherit;
+} */

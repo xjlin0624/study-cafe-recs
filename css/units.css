@@ -1,0 +1,62 @@
+html {
+    font-size: 10px;
+}
+
+section {
+    background-color: #6d6875;
+    width: 400px;
+    height: 800px;
+}
+
+div {
+    background-color: #e5989b;
+    width: 50%;
+    height: 50%;
+}
+
+
+#ems h2 {
+    font-size: 2em; /* 2x parent font size */
+    margin-left: 1em;
+}
+
+#ems h3 {
+    font-size: 1.5em;
+}
+
+#ems p {
+    font-size: 1em;
+}
+
+#ems {
+    font-size: 15px;
+}
+
+#ems ul {
+    font-size: 1.5em;
+    /* ems stack up (1.5)^n */
+}
+
+button {
+    font-size: 1em;
+    padding: 0 1em;
+    border-radius: 0.5em; /* can keep it proportional to the size */
+    background-color: #2a9d8f;
+    color: white;
+}
+
+#rems h2{
+    font-size: 3rem;
+}
+
+#rems h3{
+    font-size: 2rem;
+}
+
+#rems ul {
+    font-size: 0.8rem;
+}
+
+#rems button {
+    font-size: 1.5rem;
+}
