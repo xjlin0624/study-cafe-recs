@@ -1,23 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Cafe</title>
-</head>
-<body>
-    <h1>Edit Cafe</h1>
-    <form action="/cafes/<%=cafe._id%>?_method=PUT" method="POST">
-        <div>
-            <label for="title">Title</label>
-            <input type="text" id="title" name="cafe[title]" value="<%=cafe.title%>">
-        </div>
-        <div>
-            <label for="location">Location</label>
-            <input type="text" id="location" name="cafe[location]" value="<%=cafe.location%>">
-        </div>
-        <button>Update Cafe</button>
-    </form>
-    <a href="/cafes/<%=cafe._id%>">Back to Cafe</a>
-</body>
-</html>
+<%layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">Edit Cafe</h1>
+    <div class="col-6 offset-3">
+        <form action="/cafes/<%=cafe._id%>?_method=PUT" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="cafe[title]" value="<%=cafe.title%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="cafe[location]" value="<%=cafe.location%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id="image" name="cafe[image]" value="<%=cafe.image%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Cafe Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" id="price" name="cafe[price]" value="<%=cafe.price%>" placeholder="0.00" aria-label="price" aria-describedby="price-label">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="cafe[description]"><%=cafe.description%></textarea>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info">Update Cafe</button>
+            </div>
+        </form>
+        <a href="/cafes/<%=cafe._id%>">Back to Cafe</a>
+    </div>
+</div>
