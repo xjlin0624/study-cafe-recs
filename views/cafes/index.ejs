@@ -7,9 +7,12 @@
 </head>
 <body>
     <h1>All Cafes</h1>
+    <div>
+        <a href="/cafes/new">Add Cafe</a>
+    </div>
     <ul>
         <% for (let cafe of cafes) {%>
-            <li><%= cafe.title %></li>
+            <li><a href="cafes/<%=cafe._id%>"><%=cafe.title%></a></li>
         <% }%>
     </ul>
 </body>
