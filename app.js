@@ -2,11 +2,12 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
-const {cafeSchema} = require('./schemas.js');
+const {cafeSchema, reviewSchema} = require('./schemas.js');
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
 const Cafe = require('./models/cafe');
+const Review = require('./models/review');
 
 mongoose.connect('mongodb://localhost:27017/yelp-cafe');
 
@@ -35,6 +36,16 @@ const validateCafe = (req,res,next) => {
     }
 };
 
+const validateReview = (req,res,next) => {
+    const {error} = reviewSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',');
+        throw new ExpressError(msg, 400);
+    } else {
+        next();
+    }
+};
+
 app.get('/', (req,res) => {
     res.render('home');
 });
@@ -55,7 +66,7 @@ app.post('/cafes', validateCafe, catchAsync(async (req,res,next) => {
 }));
 
 app.get('/cafes/:id', catchAsync(async (req,res,) => {
-    const cafe = await Cafe.findById(req.params.id);
+    const cafe = await Cafe.findById(req.params.id).populate('reviews');
     res.render('cafes/show', {cafe});
 }));
 
@@ -74,6 +85,22 @@ app.delete('/cafes/:id', catchAsync(async (req,res) => {
     const {id} = req.params;
     await Cafe.findByIdAndDelete(id);
     res.redirect('/cafes');
+}));
+
+app.post('/cafes/:id/reviews', validateReview, catchAsync(async (req,res) => {
+    const cafe = await Cafe.findById(req.params.id);
+    const review = new Review(req.body.review);
+    cafe.reviews.push(review);
+    await review.save();
+    await cafe.save();
+    res.redirect(`/cafes/${cafe._id}`);
+}));
+
+app.delete('/cafes/:id/reviews/:reviewId', catchAsync(async (req,res) => {
+    const {id,reviewId} = req.params;
+    await Cafe.findByIdAndUpdate(id,{$pull: {reviews: reviewId}});
+    await Review.findByIdAndDelete(reviewId);
+    res.redirect(`/cafes/${id}`);
 }));
 
 app.all(/(.*)/, (req,res,next) => {
