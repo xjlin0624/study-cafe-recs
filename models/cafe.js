@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Review = require('./review');
 const Schema = mongoose.Schema;
 
-const CafeSchema = new Schema({
+const cafeSchema = new Schema({
     title: String,
     image: String,
     price: Number,
@@ -16,7 +16,7 @@ const CafeSchema = new Schema({
     ]
 });
 
-CafeSchema.post('findOneAndDelete', async function (doc) {
+cafeSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Review.deleteMany({
             _id: {
@@ -26,4 +26,4 @@ CafeSchema.post('findOneAndDelete', async function (doc) {
     };
 });
 
-module.exports = mongoose.model('Cafes', CafeSchema);
+module.exports = mongoose.model('Cafes', cafeSchema);
