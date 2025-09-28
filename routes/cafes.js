@@ -17,7 +17,7 @@ router.post('/', isLoggedIn, validateCafe, catchAsync(async (req,res,next) => {
     const cafe = new Cafe(req.body.cafe);
     cafe.author = req.user._id;
     await cafe.save();
-    req.flash('success', 'Successfully made a new cafe!');
+    req.flash('success', 'Successfully added a new cafe!');
     res.redirect(`/cafes/${cafe._id}`);
 }));
 

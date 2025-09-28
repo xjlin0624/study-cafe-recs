@@ -41,7 +41,7 @@ router.get('/logout', (req,res,next) => {
         if (err) {
             return next(err);
         }
-        req.flash('success', 'Goodbye!');
+        req.flash('success', 'See you next time!');
         res.redirect('/cafes');
     });
 }); 
