@@ -14,6 +14,7 @@ module.exports.reviewSchema = Joi.object({
     review: Joi.object({
         rating: Joi.number().required().min(1).max(5),
         wifi: Joi.string().required(),
+        space: Joi.string().required(),
         body: Joi.string().required()
     }).required()
 });

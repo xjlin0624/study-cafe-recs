@@ -5,6 +5,7 @@ const ReviewSchema = new Schema({
     body: String,
     rating: Number,
     wifi: String,
+    space: String,
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'

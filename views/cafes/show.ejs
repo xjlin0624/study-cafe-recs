@@ -50,7 +50,14 @@
                     <div class="valid-feedback">
                         connection!!
                     </div>
-            </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="space">Spacious?</label>
+                    <input class="form-control" type="text" id="space" name="review[space]" required>
+                    <div class="valid-feedback">
+                        spacious!!
+                    </div>    
+                </div>
                 <div class="mb-3">
                     <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
                     <div class="valid-feedback">
@@ -68,6 +75,7 @@
                         Rated: <%=review.rating%> stars
                     </p>
                     <div class="card-text">
+                        <p>Space: <%=review.space%></p> 
                         <p>Wifi: <%=review.wifi%></p> 
                         <p><%=review.body%></p>
                     </div>
