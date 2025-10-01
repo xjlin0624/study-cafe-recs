@@ -45,6 +45,13 @@
                     <label for="first-rate5" title="Amazing">5 stars</label>
                 </fieldset>
                 <div class="mb-3">
+                    <label class="form-label" for="wifi">Wifi?</label>
+                    <input class="form-control" type="text" id="wifi" name="review[wifi]" required>
+                    <div class="valid-feedback">
+                        connection!!
+                    </div>
+            </div>
+                <div class="mb-3">
                     <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
                     <div class="valid-feedback">
                         great insigts :0
@@ -60,7 +67,7 @@
                     <p class="starability-result starability-scale" data-rating="<%=review.rating%>">
                         Rated: <%=review.rating%> stars
                     </p>
-                    <p class="card-text"><%=review.body%></p>
+                    <p class="card-text">Wifi: <%=review.wifi%>; <%=review.body%></p>
                     <% if (currentUser && review.author.equals(currentUser)) { %>
                         <form action="/cafes/<%=cafe._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
                             <button class="btn btn-sm btn-danger">Delete</button>
