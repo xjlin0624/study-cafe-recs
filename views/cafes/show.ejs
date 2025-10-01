@@ -44,19 +44,21 @@
                     <input type="radio" id="first-rate5" name="review[rating]" value="5" />
                     <label for="first-rate5" title="Amazing">5 stars</label>
                 </fieldset>
-                <div class="mb-3">
-                    <label class="form-label" for="wifi">Wifi?</label>
-                    <input class="form-control" type="text" id="wifi" name="review[wifi]" required>
-                    <div class="valid-feedback">
-                        connection!!
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label class="form-label" for="wifi">Wifi?</label>
+                        <input class="form-control" type="text" id="wifi" name="review[wifi]" required>
+                        <div class="valid-feedback">
+                            connection!!
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="space">Spacious?</label>
-                    <input class="form-control" type="text" id="space" name="review[space]" required>
-                    <div class="valid-feedback">
-                        spacious!!
-                    </div>    
+                    <div class="col-6">
+                        <label class="form-label" for="space">Spacious?</label>
+                        <input class="form-control" type="text" id="space" name="review[space]" required>
+                        <div class="valid-feedback">
+                            spacious!!
+                        </div>    
+                    </div>
                 </div>
                 <div class="mb-3">
                     <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
@@ -68,7 +70,7 @@
             </form>
         <% } %>
         <% for (let review of cafe.reviews) { %>
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-body">
                     <p class="card-subtitle mb-2 text-muted"><%=review.author.username%></p>
                     <p class="starability-result starability-scale" data-rating="<%=review.rating%>">
