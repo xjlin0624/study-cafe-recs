@@ -11,8 +11,10 @@ module.exports.renderNewForm = (req,res) => {
 
 module.exports.createCafe = async (req,res,next) => {
     const cafe = new Cafe(req.body.cafe);
+    cafe.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     cafe.author = req.user._id;
     await cafe.save();
+    console.log(cafe);
     req.flash('success', 'Successfully added a new cafe!');
     res.redirect(`/cafes/${cafe._id}`);
 };
@@ -45,6 +47,9 @@ module.exports.renderEditForm = async (req,res) => {
 module.exports.updateCafe = async (req,res) => {
     const {id} = req.params;
     const cafe = await Cafe.findByIdAndUpdate(id,{...req.body.cafe});
+    const imgs = req.files.map(f => ({url: f.path, filename: f.filename}))
+    cafe.images.push(...imgs);
+    await cafe.save();
     req.flash('success', 'Successfully updated cafe!')
     res.redirect(`/cafes/${cafe._id}`);
 };

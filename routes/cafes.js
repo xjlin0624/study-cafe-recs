@@ -9,14 +9,13 @@ const upload = multer({storage});
 
 router.route('/')
     .get(catchAsync(cafes.index))
-    // .post(isLoggedIn, validateCafe, catchAsync(cafes.createCafe));
-    .post(isLoggedIn, upload.array('image'),validateCafe, catchAsync(cafes.createCafe))
+    .post(isLoggedIn, upload.array('image'), validateCafe, catchAsync(cafes.createCafe));
 
 router.get('/new', isLoggedIn, cafes.renderNewForm);
 
 router.route('/:id')
     .get(catchAsync(cafes.showCafe))
-    .put(isLoggedIn, isAuthor, validateCafe, catchAsync(cafes.updateCafe))
+    .put(isLoggedIn, isAuthor, upload.array('image'), validateCafe, catchAsync(cafes.updateCafe))
     .delete(isLoggedIn, isAuthor, catchAsync(cafes.deleteCafe));
 
 router.get('/:id/edit', isLoggedIn, isAuthor, catchAsync(cafes.renderEditForm));
