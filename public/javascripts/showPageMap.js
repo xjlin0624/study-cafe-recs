@@ -10,7 +10,7 @@ new mapboxgl.Marker()
     .setLngLat(cafe.geometry.coordinates)
     .setPopup(
         new mapboxgl.Popup({offset: 20}).setHTML(
-            `<h3>${cafe.title}</h3> <p>${cafe.location}</p>`
+            `<h5>${cafe.title}</h5> <p class="text-muted">${cafe.location}</p>`
         )
     )
     .addTo(map)
