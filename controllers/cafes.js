@@ -1,4 +1,7 @@
 const Cafe = require('../models/cafe');
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const MapBoxToken = process.env.MAPBOX_TOKEN;
+const geocoder = mbxGeocoding({accessToken: MapBoxToken});
 const {cloudinary} = require('../cloudinary');
 
 module.exports.index = async (req,res) => {
@@ -11,7 +14,12 @@ module.exports.renderNewForm = (req,res) => {
 };
 
 module.exports.createCafe = async (req,res,next) => {
+    const geoData = await geocoder.forwardGeocode({
+        query: req.body.cafe.location,
+        limit: 1
+    }).send();
     const cafe = new Cafe(req.body.cafe);
+    cafe.geometry = geoData.body.features[0].geometry;
     cafe.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     cafe.author = req.user._id;
     await cafe.save();
