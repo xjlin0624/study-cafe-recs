@@ -33,7 +33,11 @@ const seedDB = async() => {
                 }
             ],
             description: 'this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description',
-            price
+            price,
+            geometry: {
+                type: 'Point',
+                coordinates: [-113.1331, 47.0202]
+            }
         });
         await cafe.save();
     };

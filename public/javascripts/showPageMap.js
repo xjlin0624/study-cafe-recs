@@ -2,6 +2,15 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-74.5, 40], // starting position [lng, lat]
-    zoom: 4, // starting zoom
+    center: cafe.geometry.coordinates, // starting position [lng, lat]
+    zoom: 8, // starting zoom
 });
+
+new mapboxgl.Marker()
+    .setLngLat(cafe.geometry.coordinates)
+    .setPopup(
+        new mapboxgl.Popup({offset: 20}).setHTML(
+            `<h3>${cafe.title}</h3> <p>${cafe.location}</p>`
+        )
+    )
+    .addTo(map)
