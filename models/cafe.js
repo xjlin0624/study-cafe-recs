@@ -11,6 +11,8 @@ imageSchema.virtual('thumbnail').get(function() {
     return this.url.replace('/upload', '/upload/w_200');
 });
 
+const opts = {toJSON: {virtuals: true}};
+
 const cafeSchema = new Schema({
     title: String,
     images: [imageSchema],
@@ -38,6 +40,10 @@ const cafeSchema = new Schema({
             ref: 'Review'
         }
     ]
+}, opts);
+
+cafeSchema.virtual('properties.popUpMarkup').get(function() {
+    return `<strong><a href='/cafes/${this._id}'>${this.title}</a><strong>`;
 });
 
 cafeSchema.post('findOneAndDelete', async function (doc) {

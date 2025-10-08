@@ -5,7 +5,7 @@ const map = new mapboxgl.Map({
     config: {
         basemap: {
             theme: 'monochrome',
-            lightPreset: 'night'
+            lightPreset: 'light'
         }
     },
     center: [-103.5917, 40.6699],
@@ -16,7 +16,7 @@ map.on('load', () => {
     // Add a new source from our GeoJSON data and
     // set the 'cluster' option to true. GL-JS will
     // add the point_count property to your source data.
-    map.addSource('earthquakes', {
+    map.addSource('cafes', {
         type: 'geojson',
         generateId: true,
         // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
@@ -30,7 +30,7 @@ map.on('load', () => {
     map.addLayer({
         id: 'clusters',
         type: 'circle',
-        source: 'earthquakes',
+        source: 'cafes',
         filter: ['has', 'point_count'],
         paint: {
             // Use step expressions (https://docs.mapbox.com/style-spec/reference/expressions/#step)
@@ -42,19 +42,19 @@ map.on('load', () => {
                 'step',
                 ['get', 'point_count'],
                 '#51bbd6',
-                100,
-                '#f1f075',
-                750,
-                '#f28cb1'
+                10,
+                '#217c93',
+                30,
+                '#0a414f'
             ],
             'circle-radius': [
                 'step',
                 ['get', 'point_count'],
+                15,
+                10,
                 20,
-                100,
                 30,
-                750,
-                40
+                25
             ],
             'circle-emissive-strength': 1
         }
@@ -63,7 +63,7 @@ map.on('load', () => {
     map.addLayer({
         id: 'cluster-count',
         type: 'symbol',
-        source: 'earthquakes',
+        source: 'cafes',
         filter: ['has', 'point_count'],
         layout: {
             'text-field': ['get', 'point_count_abbreviated'],
@@ -75,11 +75,11 @@ map.on('load', () => {
     map.addLayer({
         id: 'unclustered-point',
         type: 'circle',
-        source: 'earthquakes',
+        source: 'cafes',
         filter: ['!', ['has', 'point_count']],
         paint: {
-            'circle-color': '#11b4da',
-            'circle-radius': 4,
+            'circle-color': '#51bbd6',
+            'circle-radius': 8,
             'circle-stroke-width': 1,
             'circle-stroke-color': '#fff',
             'circle-emissive-strength': 1
@@ -95,7 +95,7 @@ map.on('load', () => {
                 layers: ['clusters']
             });
             const clusterId = features[0].properties.cluster_id;
-            map.getSource('earthquakes').getClusterExpansionZoom(
+            map.getSource('cafes').getClusterExpansionZoom(
                 clusterId,
                 (err, zoom) => {
                     if (err) return;
@@ -117,16 +117,12 @@ map.on('load', () => {
         type: 'click',
         target: { layerId: 'unclustered-point' },
         handler: (e) => {
+            const {popUpMarkup} = e.feature.properties;
             const coordinates = e.feature.geometry.coordinates.slice();
-            const mag = e.feature.properties.mag;
-            const tsunami =
-                e.feature.properties.tsunami === 1 ? 'yes' : 'no';
-
+            
             new mapboxgl.Popup()
                 .setLngLat(coordinates)
-                .setHTML(
-                    `magnitude: ${mag}<br>Was there a tsunami?: ${tsunami}`
-                )
+                .setHTML(popUpMarkup)
                 .addTo(map);
         }
     });
