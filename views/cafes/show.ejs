@@ -46,7 +46,7 @@
     </div>
 
     <div class="col-6">
-        <div class='mb-5' id='map' style='width: 600px; height: 300px;'></div>
+        <div class='mb-5' id='map'></div>
         <% if (currentUser) { %>
             <h3>Leave a review!</h2>
             <form action="/cafes/<%=cafe._id%>/reviews" method="POST" class="mb-5 validated-form" novalidate>

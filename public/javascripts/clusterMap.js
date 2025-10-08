@@ -1,6 +1,6 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
-    container: 'map',
+    container: 'cluster-map',
     style: 'mapbox://styles/mapbox/standard',
     config: {
         basemap: {
@@ -11,6 +11,8 @@ const map = new mapboxgl.Map({
     center: [-103.5917, 40.6699],
     zoom: 3
 });
+
+map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', () => {
     // Add a new source from our GeoJSON data and
