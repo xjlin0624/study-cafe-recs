@@ -35,5 +35,6 @@ module.exports.places = [
     'Roasting Company',
     'Coffee Tasting House',
     'Bread & Coffee',
-    'Coffee Roasters'
+    'Coffee Roasters',
+    'Coffee Company'
 ]
