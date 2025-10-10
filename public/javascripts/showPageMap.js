@@ -15,4 +15,4 @@ new mapboxgl.Marker()
             `<h5>${cafe.title}</h5> <p class="text-muted">${cafe.location}</p>`
         )
     )
-    .addTo(map)
+    .addTo(map);
