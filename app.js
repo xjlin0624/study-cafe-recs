@@ -37,7 +37,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(mongoSanitize);
+// app.use(mongoSanitize());
+
+app.use((req, res, next) => {
+    if (req.body) {
+        req.body = mongoSanitize.sanitize(req.body);
+    }
+    next();
+});
 
 const sessionConfig = {
     name: 'session',
@@ -72,6 +79,14 @@ app.use((req,res,next) => {
     res.locals.error = req.flash('error');
     next();
 });
+
+// app.use((req, res, next) => {
+//     if (req.body) {
+//         req.body = mongoSanitize.sanitize(req.body);
+//     }
+//     // Don't sanitize req.query or req.params - they cause issues
+//     next();
+// });
 
 app.use('/', userRoutes);
 app.use('/cafes', cafeRoutes);
