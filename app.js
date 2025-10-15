@@ -101,14 +101,6 @@ app.use((req,res,next) => {
     next();
 });
 
-// app.use((req, res, next) => {
-//     if (req.body) {
-//         req.body = mongoSanitize.sanitize(req.body);
-//     }
-//     // Don't sanitize req.query or req.params - they cause issues
-//     next();
-// });
-
 app.use('/', userRoutes);
 app.use('/cafes', cafeRoutes);
 app.use('/cafes/:id/reviews', reviewRoutes);
