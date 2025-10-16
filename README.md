@@ -4,7 +4,7 @@
 
 ## hello ! you will find the perfect cafe for studying and working [here](study-cafe-recs.onrender.com) :D
 
-this is a cafe recommendation app where users can add their own cafe finds onto the page and leave reviews! 
+this is a cafe recommendation app where users can add their own cafe finds onto the page and leave reviews for the crowd! 
 
 information about wifi connection, space, and price for a basic americano is required for the input, which are the main things i personally consider when i look for a place to study. 
 
