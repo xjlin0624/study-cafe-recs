@@ -3,7 +3,7 @@ const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
     center: cafe.geometry.coordinates, // starting position [lng, lat]
-    zoom: 8, // starting zoom
+    zoom: 12, // starting zoom
 });
 
 map.addControl(new mapboxgl.NavigationControl());
