@@ -12,6 +12,7 @@ module.exports.isLoggedIn = (req,res,next) => {
     next();
 };
 
+// the function storing paths such as `createNewCafe` in the case of user not signed up for redirection
 module.exports.storeReturnTo = (req,res,next) => {
     if (req.session.returnTo) {
         res.locals.returnTo = req.session.returnTo;
