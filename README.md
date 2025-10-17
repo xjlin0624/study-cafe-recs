@@ -1,4 +1,4 @@
-# study-cafe-recs
+# study cafe recs
 
 !['coffee'](https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
@@ -19,4 +19,4 @@ information about wifi connection, space, and price for a basic americano is req
 
 ### live chat <small>(to be implemented)</small>
 
-the vision is to have live chatting feature so users can ask people at the cafe (who have this platform open) questions about space, any events going on, etc.
+the vision is to have live chatting feature so users can ask people currently at the cafe (who have this platform open) questions about space, any events going on, etc.
