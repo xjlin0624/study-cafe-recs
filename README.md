@@ -8,6 +8,7 @@ this is a cafe recommendation app where users can add their own cafe finds onto 
 
 information about wifi connection, space, and price for a basic americano is required for the input, which are the main things i personally consider when i look for a place to study. 
 
+------------------------------
 
 ### cafes 
 
@@ -17,6 +18,28 @@ information about wifi connection, space, and price for a basic americano is req
 
 [here](https://study-cafe-recs.onrender.com/cafes/new) useres can input and create a new cafe after they have registered and logged in with an account. let's grow the list!!
 
-### live chat <small>(to be implemented)</small>
+------------------------------
 
-the vision is to have live chatting feature so users can ask people currently at the cafe (who have this platform open) questions about space, any events going on, etc.
+### features:
+- **interactive map**: allows user to see the locations of cafes added
+- **live chatting**: for users to gauge cafe seats availability, any events going on, etc.
+
+
+-------------------------------
+
+> **to be implemented**:
+> - re-routing message/chat module
+> - index page:
+>   - search functions 
+>   - maybe display rating for each cafe?
+> - show/new/edit page:
+>   - change 2 days ago to actual time
+>   - maybe add a cancel edit/add new button?
+>   - put error and add new page together so user dont need to back
+>   - handle erroneous location entry (flash message / pick default location)
+> - image upload:
+>   - limit num of images (check curr num  in cloudinary)
+>   - limit upload type (mp3 etc.)
+>   - limit/normalize image size
+>   - backup plan when all images are deleted
+> - maybe move map css from boilerplate to specific pages
