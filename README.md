@@ -21,7 +21,7 @@ information about wifi connection, space, and price for a basic americano is req
 ------------------------------
 
 ### features:
-- **interactive map**: allows user to see the locations of cafes added
+- **interactive map**: allows users to see the locations of cafes added
 - **live chatting**: for users to gauge cafe seats availability, any events going on, etc.
 
 
