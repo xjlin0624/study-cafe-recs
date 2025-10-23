@@ -30,6 +30,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item text-muted"><%=cafe.location%></li>
                 <li class="list-group-item">$<%=cafe.price%>/americano</li>
+                <li class="list-group-item"><%=cafe.wifi%> wifi; <%=cafe.space%> space</li>
             </ul>
             <%if ( currentUser && cafe.author.equals(currentUser._id)) { %>
                 <div class="card-body">
@@ -48,7 +49,7 @@
     <div class="col-6">
         <div class='mb-5' id='map'></div>
         <% if (currentUser) { %>
-            <h3>Leave a review!</h2>
+            <h2>Leave a review!</h2>
             <form action="/cafes/<%=cafe._id%>/reviews" method="POST" class="mb-5 validated-form" novalidate>
                 <fieldset class="starability-basic">
                     <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
@@ -66,14 +67,14 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <label class="form-label" for="wifi">Wifi?</label>
-                        <input class="form-control" type="text" id="wifi" name="review[wifi]" placeholder="strong / spotty / unavailable"  required>
+                        <input class="form-control" type="text" id="wifi" name="review[wifi]" placeholder="strong / spotty / unavailable" required>
                         <div class="valid-feedback">
                             connection!!
                         </div>
                     </div>
                     <div class="col-6">
                         <label class="form-label" for="space">Spacious?</label>
-                        <input class="form-control" type="text" id="space" name="review[space]" placeholder="spacious / impossible to find space"  required>
+                        <input class="form-control" type="text" id="space" name="review[space]" placeholder="spacious / impossible to find space" required>
                         <div class="valid-feedback">
                             spacious!!
                         </div>    

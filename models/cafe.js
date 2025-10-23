@@ -30,6 +30,8 @@ const cafeSchema = new Schema({
     price: Number,
     description: String,
     location: String,
+    wifi: String,
+    space: String,
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'

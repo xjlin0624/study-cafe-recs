@@ -34,6 +34,8 @@ const seedDB = async() => {
             ],
             description: 'this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description this is a placeholder description',
             price,
+            wifi: 'strong',
+            space: 'huge',
             geometry: {
                 type: 'Point',
                 coordinates: [

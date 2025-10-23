@@ -29,13 +29,29 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text" id="description" name="cafe[description]" placeholder="how was the wife & spacing?" required></textarea>
+                <textarea class="form-control" type="text" id="description" name="cafe[description]" required></textarea>
                 <div class="valid-feedback">
                     very informative!
                 </div>
             </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" for="wifi">Wifi</label>
+                    <input class="form-control" type="text" id="wifi" name="cafe[wifi]" placeholder="strong / spotty / unavailable" required>
+                    <div class="valid-feedback">
+                        connection!!
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" for="space">Space</label>
+                    <input class="form-control" type="text" id="space" name="cafe[space]" placeholder="spacious / impossible to find space" required>
+                    <div class="valid-feedback">
+                        spacious!!
+                    </div>
+                </div>
+            </div>
             <div class="mb-3">
-                <label class="form-label" for="unage">Upload Image(s)</label>
+                <label class="form-label" for="image">Upload Image(s)</label>
                 <input class="form-control" type="file" id="image" name="image" multiple>
                 <div class="valid-feedback">
                     great visuals!

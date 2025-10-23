@@ -34,13 +34,30 @@
                     very informative!
                 </div>
             </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label" for="wifi">Wifi</label>
+                    <input class="form-control" type="text" id="wifi" name="cafe[wifi]" required value="<%=cafe.wifi%>">
+                    <div class="valid-feedback">
+                        connection!!
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label class="form-label" for="space">Space</label>
+                    <input class="form-control" type="text" id="space" name="cafe[space]" required value="<%=cafe.space%>">
+                    <div class="valid-feedback">
+                        spacious!!
+                    </div>
+                </div>
+            </div>
             <div class="mb-3">
-                <label class="form-label" for="unage">Add More Image(s)</label>
+                <label class="form-label" for="image">Add More Image(s)</label>
                 <input class="form-control" type="file" id="image" name="image" multiple>
                 <div class="valid-feedback">
                     great visuals!
                 </div>
-            </div>    
+            </div>
+            <p>Current Images</p>
             <div class="mb-3 row mx-auto">
                 <% cafe.images.forEach(function(img,i){ %>
                     <div class="card mb-3 mx-2 col-5">
