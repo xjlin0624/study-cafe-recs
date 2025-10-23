@@ -33,7 +33,7 @@ information about wifi connection, space, and price for a basic americano is req
 >   - search functions 
 >   - maybe display rating for each cafe?
 > - show/new/edit page:
->   - change 2 days ago to actual time
+>   - change '2 days ago' to actual time
 >   - maybe add a cancel edit/add new button?
 >   - put error and add new page together so user dont need to back
 >   - handle erroneous location entry (flash message / pick default location)
