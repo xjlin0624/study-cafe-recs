@@ -37,6 +37,7 @@ information about wifi connection, space, and price for a basic americano is req
 >   - maybe add a cancel edit/add new button?
 >   - put error and add new page together so user dont need to back
 >   - handle erroneous location entry (flash message / pick default location)
+>   - change wifi/space to option format instead of text input
 > - image upload:
 >   - limit num of images (check curr num  in cloudinary)
 >   - limit upload type (mp3 etc.)
