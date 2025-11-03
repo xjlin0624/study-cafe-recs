@@ -30,7 +30,8 @@ information about wifi connection, space, and price for a basic americano is req
 > **to be implemented**:
 > - re-routing message/chat module
 > - index page:
->   - search functions 
+>   - search feature 
+>   - filter feature with option inputs and a reset button
 >   - maybe display rating for each cafe?
 > - show/new/edit page:
 >   - change '2 days ago' to actual time
