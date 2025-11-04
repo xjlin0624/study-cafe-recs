@@ -66,8 +66,13 @@
                 </fieldset>
                 <div class="row mb-3">
                     <div class="col-6">
-                        <label class="form-label" for="wifi">Wifi?</label>
-                        <input class="form-control" type="text" id="wifi" name="review[wifi]" placeholder="strong / spotty / unavailable" required>
+                        <label class="form-label" for="wifi">Wifi</label>
+                        <select class="form-select" id="wifi" name="cafe[wifi]" required>
+                            <option value="" disabled selected>please select</option>
+                            <% for (let sig of wifiSign) { %>
+                            <option value="<%=sig%>"><%=sig%></option>
+                            <% } %>
+                        </select>
                         <div class="valid-feedback">
                             connection!!
                         </div>

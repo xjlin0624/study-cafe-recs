@@ -42,7 +42,7 @@ module.exports.showCafe = async (req,res,) => {
         req.flash('error', 'Cannot find cafe.');
         return res.redirect('/cafes');
     }
-    res.render('cafes/show', {cafe});
+    res.render('cafes/show', {cafe, wifiSign});
 };
 
 module.exports.renderEditForm = async (req,res) => {
