@@ -4,13 +4,15 @@ const MapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken: MapBoxToken});
 const {cloudinary} = require('../cloudinary');
 
+const wifiSign = ['strong', 'spotty', 'no wifi'];
+
 module.exports.index = async (req,res) => {
     const cafes = await Cafe.find({});
     res.render('cafes/index', {cafes});
 };
 
 module.exports.renderNewForm = (req,res) => {
-    res.render('cafes/new');
+    res.render('cafes/new', {wifiSign});
 };
 
 module.exports.createCafe = async (req,res,next) => {
@@ -50,7 +52,7 @@ module.exports.renderEditForm = async (req,res) => {
         req.flash('error', 'Cannot find cafe.');
         return res.redirect('/cafes');
     }
-    res.render('cafes/edit', {cafe});
+    res.render('cafes/edit', {cafe, wifiSign});
 };
 
 module.exports.updateCafe = async (req,res) => {

@@ -37,7 +37,12 @@
             <div class="row mb-3">
                 <div class="col-6">
                     <label class="form-label" for="wifi">Wifi</label>
-                    <input class="form-control" type="text" id="wifi" name="cafe[wifi]" placeholder="strong / spotty / unavailable" required>
+                    <select class="form-select" id="wifi" name="cafe[wifi]" required>
+                        <option value="" disabled selected>please select</option>
+                        <% for (let sig of wifiSign) { %>
+                            <option value="<%=sig%>"><%=sig%></option>
+                        <% } %>
+                    </select>
                     <div class="valid-feedback">
                         connection!!
                     </div>
@@ -52,7 +57,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Upload Image(s)</label>
-                <input class="form-control" type="file" id="image" name="image" multiple>
+                <input class="form-control" type="file" id="image" name="image" multiple required>
                 <div class="valid-feedback">
                     great visuals!
                 </div>
