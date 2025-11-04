@@ -37,7 +37,11 @@
             <div class="row mb-3">
                 <div class="col-6">
                     <label class="form-label" for="wifi">Wifi</label>
-                    <input class="form-control" type="text" id="wifi" name="cafe[wifi]" required value="<%=cafe.wifi%>">
+                    <select class="form-select" id="wifi" name="cafe[wifi]" required>
+                        <% for (let sig of wifiSign) { %>
+                            <option value="<%=sig%>" <%=cafe.wifi==sig?'selected':''%> ><%=sig%></option>
+                        <% } %>
+                    </select>
                     <div class="valid-feedback">
                         connection!!
                     </div>
